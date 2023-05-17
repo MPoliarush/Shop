@@ -1,0 +1,121 @@
+.goods{
+    margin-left: 20px;
+    padding: 10px 20px;
+}
+
+.form-block{
+    margin-bottom: 70px;
+}
+
+.form-block{
+    border-bottom: 1px solid;
+    width: fit-content;
+    margin: 50px auto 0;
+}
+
+.photo-cont {
+    display: flex;
+}
+
+.adminGoodsIMG{
+    width:100px;
+
+}
+
+.admin{
+    width:100%;
+}
+
+.admin-navigation{
+    width:20%;
+}
+
+.goods{
+    width: 100%;
+}
+
+.form-block{
+    padding:20px 40px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.form-container{
+    display: flex;
+    width:100%;
+    margin-bottom: 10px;
+}
+
+.form-container p{
+    min-width:250px;
+}
+
+.input-div input{
+    
+    padding: 3px;
+  
+}
+
+.btns{
+    margin: 40px auto 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.edit-btn{
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    background-color:#76c302;
+    
+    transition: 0.5s;
+    
+}
+
+.edit-btn:hover{
+    transition: 0.5s;
+    background-color:#95f505;
+}
+
+.delete-btn{
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: none;
+    background-color:#fd6e6e;
+    transition: 0.5s;
+    margin-right: 15px;
+   
+}
+
+.delete-btn:hover{
+    background-color:#ee0b0b;
+}
+
+
+.img-box{
+    display: flex;
+    align-items: center;
+
+}
+
+.img-delete{
+    height: 40px;
+
+}
+
+.img-delete:hover{
+    cursor: pointer;
+}
+
+.message{
+    width: 100%;
+    font-weight: 700;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.message a{
+    font-size: 18px; 
+}
+
+

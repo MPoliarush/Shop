@@ -1,0 +1,12 @@
+
+.goods-linse-container{
+    width: 85%;
+    margin-top: 50px;
+}
+
+.goods-linse-container .card-frame {
+    width: 32%;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+

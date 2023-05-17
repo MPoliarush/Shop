@@ -1,0 +1,100 @@
+
+
+.compare-goods{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.compare-goods-span{
+    /* margin-right: 30px; */
+}
+
+.compare-goods-span:hover{
+cursor: pointer;
+}
+
+.compare-goods-span.active {
+    color: rgb(73, 190, 5);
+    font-weight: 700;
+}
+
+.num{
+    margin-right: 30px;
+}
+
+.comp-wrapp{
+    display: flex;
+    width: 100%;
+}
+
+
+.compareImg{
+    height: 100px;
+    display: block;
+}
+
+.labels{
+    min-width:180px;
+    text-align: center;
+}
+
+.labels.lables{
+    width: 25%;
+}
+
+.labels.lables p {
+    font-weight: 700;
+    
+}
+
+.comparedFeature{
+    display: flex;
+    font-weight: 700;
+    padding: 10px 0;
+    align-items: center;
+    font-weight: 400;
+    justify-content: center;
+    border-bottom: #e9e9e9 solid 1px;
+    height: 35px;
+}
+
+.column{
+    width:180px;
+    text-align: center;
+}
+
+.data{
+    display: flex;
+   width:74%;
+   justify-content: left;
+   overflow-x: scroll;
+   gap:3%;
+   min-width:180px
+}
+
+
+.dummyLabel{
+    display: block;
+    margin: 21px 0;
+}
+
+.delete-compar-btn{
+    display: block;
+    height: 30px; 
+    margin-top: 10px;
+}
+
+.delete-compar-btn:hover{
+    cursor: pointer;
+}
+
+.photoBlock{
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+}
+
+.labels.sticky.photoBlock{
+    height: 140px;
+    padding: 0;
+}

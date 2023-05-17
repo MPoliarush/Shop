@@ -1,0 +1,114 @@
+.news-container,.about-cont{
+    display: flex;
+    justify-content: space-between;
+    gap:10%;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.left-bar{
+ width:70%;
+
+}
+
+.side{
+  width:25%;
+}
+
+.left-bar img{
+   object-fit: cover;
+   width:100%;
+   
+   margin-bottom: 15px;
+}
+
+.news-card{
+    border: 1px solid #EFEFEF;
+    margin-bottom: 40px;
+}
+
+.news-card h5{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 20px;
+/* identical to box height, or 111% */
+
+text-transform: uppercase;
+
+color: #000000;
+margin: 15px 0;
+padding: 0 20px 0px 20px;
+}
+
+.news-card span{
+    padding: 0 20px 0px 20px;
+}
+
+.news-card p{
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 26px;
+
+color: #75758A;
+padding: 0 20px 15px 20px;
+}
+
+.side ul{
+    border: 1px solid #EFEFEF;
+    padding: 15px 20px;
+    text-align: right;
+  
+}
+
+.side ul li{
+    padding: 5px 0;
+}
+
+.side ul li a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000000;
+    transition: 0.3s;
+}
+
+.side ul li a:hover{
+    color: #76c302;
+    transition: 0.3s;
+}
+
+.side h3{
+    text-align: right;
+    margin-top: 40px;
+}
+
+.news>.news-goods{
+    width:100%;
+}
+
+
+
+.left-blok-about{
+width:50%;
+}
+
+.basic-text.about{
+    margin: 0 0 30px;
+    width:100%;
+}
+
+.map{
+    width:45%;
+    border: 1px dolid;
+   
+}
+
+.map img{
+    width:100%;
+    object-fit: cover;
+}
+

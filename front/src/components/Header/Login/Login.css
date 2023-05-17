@@ -1,0 +1,96 @@
+.login h2{
+    width: fit-content;
+    margin: 50px auto 0;
+    color: #60B021;
+}
+.wrapp{
+    width: 30%;
+    margin: 7% auto;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.wrapp a{
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.credentials-form{
+
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    margin-bottom: 70px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+    padding: 30px 40px 50px;
+}
+
+.credentials{
+    width: 100%;
+   
+}
+.credentials:last-of-type{
+    margin-bottom: 25px;
+}
+
+.credentials label{
+    display: inline-block;
+    width:100%;
+    font-size: 18px;
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+.credentials input{
+   padding: 5px 10px;
+   width:90%;
+   background: #F5F5F5;
+    border: 1px solid #E3E3E3;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.wrapp p{
+margin-bottom: 8px;
+}
+
+.auth-btn{
+    margin-top: 10px;
+    padding: 10px 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    font-weight: 700;
+    transition: 0.3s;
+    
+    border: none;
+    background: linear-gradient(180deg, #8EE902 0%, #4F9C2C 100%);
+    border-radius: 100px;
+}
+
+.auth-btn:hover{
+cursor: pointer;
+transition: 0.5s;
+background: linear-gradient(180deg, #85dd02 0%, #3d7622 100%);
+}
+
+.registr{
+    width: 60%;
+    margin: 0px auto;
+
+}
+
+
+.err{
+    font-size: 13px;
+    color: red;
+    text-align: left;
+}
+
+.userNotFound{
+    position: relative;
+    top:-20px;
+    font-size: 17px;
+    color: red;
+}

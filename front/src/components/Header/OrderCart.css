@@ -1,0 +1,189 @@
+
+.orders{
+    margin-bottom: 00px;
+}
+
+
+.orders-h1{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 34px;
+    /* identical to box height */
+    
+    text-transform: uppercase;
+    margin-top: 45px;
+}
+
+.period{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
+.from, .to{
+    min-width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid #E3E3E3 1px;
+    padding: 15px 30px;
+}
+
+.from span, .to span{
+    font-family: 'Ubuntu';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+    
+    
+    color: #75758A;
+   margin-right: 20px;
+}
+
+.from input, .to input{
+    /* width:50%; */
+    padding: 10px 15px;
+    border: none;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+    font-weight: 700;
+    font-size: 17px;
+}
+
+.goods-wrapper{
+    margin-top: 50px;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+    cursor: pointer;
+}
+
+.fixedWidth{
+    width:15%;
+    text-align: center;
+    /* border:  solid 1px; */
+}
+
+.heading, .item{
+    display: flex;
+    border-top: #EFEFEF 1px solid;
+    border-bottom: #EFEFEF 1px solid;
+}
+
+.heading span{
+    display: block;
+    font-family: 'Ubuntu';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 20px;
+/* identical to box height, or 143% */
+
+color: #75758A;
+padding: 10px 0;
+}
+
+.item{
+    display: flex;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+.goodIMG{
+    display: inline;
+    text-align: center;
+    width: 70%;
+}
+
+.basketIMG{
+    width: 25%;
+}
+
+.basketIMG:hover{
+    cursor: pointer;
+}
+
+/* .name{
+    width: 30%;
+} */
+
+.heavy{
+    font-weight: 700;
+    margin-top: 10px;
+
+}
+
+.highlight{
+    color: #81d602;
+}
+
+.delete{
+    height: 35px;
+
+}
+
+.day{
+    display: block;
+    font-weight: 700;
+    font-size: 18px;
+    color: #81d602;
+}
+
+.pricesmall{
+    font-size: 11px;
+    color: #9a9ab0;
+}
+
+.confirm-btn{
+    margin-right: 50px;
+    position: absolute;
+    right: 0;
+    margin-top: 100px;
+    padding: 15px 30px ;
+    border-radius: 50px;
+    font-weight: 700;
+    background: linear-gradient(180deg, #8EE902 0%, #4F9C2C 100%);
+    border: none;
+    transition: 0.5s;
+   
+}
+
+.confirm-btn:hover{
+cursor: pointer;
+transition: 0.5s;
+background: linear-gradient(180deg, #85dd02 0%, #3d7622 100%);
+}
+
+.confirm-btn.total{
+    bottom:-90px;
+    background-color: transparent;
+    font-size: 22px;
+    background: none;
+}
+
+.confirm-btn.total:hover{
+    cursor:auto;
+}
+
+.confirm-btn.date{
+    margin-right: 50px;
+    position: relative;
+    right: 0;
+    margin: 12px 0;
+    padding: 15px 25px;
+    border-radius: 50px;
+    background: linear-gradient(180deg, #8EE902 0%, #4F9C2C 100%);
+    border: none;
+    transition: 0.5s;
+}
+
+.confirm-btn.date:hover{
+    background: linear-gradient(180deg, #85dd02 0%, #3d7622 100%);
+    transition: 0.5s;
+}
