@@ -45,7 +45,7 @@
     display: inline-block;
    position: relative;
    top:8px;
-   width:15%;
+   width:fit-content;
   }
 
   .burger{
@@ -56,7 +56,6 @@
  
   }
   
-
   .navAndlogin{
    
     display: flex;

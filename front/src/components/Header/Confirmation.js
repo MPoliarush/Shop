@@ -28,7 +28,12 @@ function Confirmation(){
 
 
 async function getWarehouses(){
-    
+    const config = {
+        headers:{
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin" : "*"
+        }
+    }
     try{
         
         const params = {
@@ -43,7 +48,7 @@ async function getWarehouses(){
             "TypeOfWarehouse": "841339c7-591a-42e2-8233-7a0a00f0ed6f"
             }
          }
-        const response = await axios.post(`https://api.novaposhta.ua/v2.0/json/`, params)
+        const response = await axios.post(`https://api.novaposhta.ua/v2.0/json/`, params, config)
         console.log(response.data)
         setIsLoading('')
         setPostPoints(response.data.data)
