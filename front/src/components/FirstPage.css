@@ -224,6 +224,10 @@ z-index: 10;
   list-style-type:none;
 }
 
+.news li{
+  width:100%;
+}
+
 .product-info{
   position: relative;
   text-align: center;
@@ -567,6 +571,10 @@ width: 46.5%;
     top:-430px;
   }
 
+   .news li{
+    width:100%;
+  }
+
 }
 
 
@@ -574,6 +582,16 @@ width: 46.5%;
 
 
 @media screen and (max-width:550px) {
+
+
+  .product-pricing{
+    flex-wrap: wrap;
+  }
+
+  .product-pricing-box-price{
+    display: block;
+  }
+
 
   .first-page-text-container {
     width:fit-content;
@@ -601,4 +619,17 @@ width:90%;
     min-width: 0;
     margin: 0 auto;
   }
+
+
+  .card-farame.news-goods{
+    margin: 0 auto;
+    width:fit-content;
+  }
+
+
+
+    .news li{
+      margin: 0 auto;
+    }
+
 }

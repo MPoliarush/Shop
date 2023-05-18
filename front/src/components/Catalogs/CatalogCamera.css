@@ -146,10 +146,56 @@
 
 @media screen and (max-width:1080px) {
   .goods-container .card-frame {
-    
+
   }
 
 
+
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width:550px) {
+ 
+.goods-container{
+  width:100%;
+}
+
+  .goods-container .card-frame {
+    min-width: 200px;
+    width: 32%;
+  }
+  .catalog-h1{
+    font-size: 25px;
+  }
+
+  .basic-text{
+    width:90%;
+    margin-right: 0;
+  }
+
+  .big-goods-container{
+    flex-direction: column-reverse;
+  
+  }
+
+  .side-bar{
+   margin-top: 50px;
+   margin-left: 0;
+  }
+
+  .goods-container-ul li {
+    margin: 0 auto;
+  }
+
+  .product-img-wrapper {
+    padding-top: 20px;
+  }
 
 }
  

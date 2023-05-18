@@ -57,11 +57,15 @@ color: #75758A;
 padding: 0 20px 15px 20px;
 }
 
+.side{
+    width: fit-content;
+  
+}
+
 .side ul{
     border: 1px solid #EFEFEF;
     padding: 15px 20px;
     text-align: right;
-  
 }
 
 .side ul li{
@@ -86,10 +90,6 @@ padding: 0 20px 15px 20px;
     margin-top: 40px;
 }
 
-.news>.news-goods{
-    width:100%;
-}
-
 
 
 .left-blok-about{
@@ -112,3 +112,46 @@ width:50%;
     object-fit: cover;
 }
 
+
+
+
+
+
+
+
+@media screen and (max-width:1080px) {
+    
+    .news.card-farame.news-goods{
+        margin: 0 auto;
+        width:fit-content;
+    }
+  
+  
+  }
+
+
+
+
+
+
+
+
+@media screen and (max-width:550px) {
+    .news-container{
+        display: block;
+    }
+
+    .left-bar{
+        width: 100%;
+    }
+
+    .side{
+        width: 100%;
+    }
+
+    .card-farame.news-goods{
+        margin: 0 auto;
+        width:fit-content;
+    }
+
+}
