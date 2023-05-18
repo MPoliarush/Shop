@@ -154,4 +154,16 @@ width:50%;
         width:fit-content;
     }
 
+    .about-cont{
+        display: block;
+    }
+
+    .left-blok-about{
+        width:100%;
+    }
+
+    .map{
+        width:100%
+    }
+
 }

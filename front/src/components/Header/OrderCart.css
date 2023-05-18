@@ -187,3 +187,74 @@ background: linear-gradient(180deg, #85dd02 0%, #3d7622 100%);
     background: linear-gradient(180deg, #85dd02 0%, #3d7622 100%);
     transition: 0.5s;
 }
+
+
+
+
+
+@media screen and (max-width:550px) {
+
+    
+    .heading{
+        display: block;
+    }
+
+    .from,.to{
+        display: block;
+    }
+
+    .calendar-input{
+        margin-top: 15px;
+    }
+
+    .item{
+        display: block;
+        width:100%;
+    }
+
+    .fixedWidth{
+        width:100%;
+        max-width: 300px;
+        margin: 0px auto 15px;
+        align-items: center;
+    }
+
+    .heading span{
+    margin-bottom: 20px;
+    }
+
+    .confirm-btn.date{
+        display: block;
+        width:fit-content;
+        margin: 10px auto;
+    }
+
+    .confirm-btn.total{
+        position: static;
+        width: fit-content;
+        margin: 0 auto;
+       padding: 30px 10px;
+    }
+
+    .confirm-btn{
+        position: static;
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    .orders a{
+        text-decoration: none;
+    }
+
+    .mobile{
+        display: none;
+    }
+    
+    .day{
+        margin-top:5px;
+    }
+    .basketIMG{
+        width: 35px;
+    }
+}

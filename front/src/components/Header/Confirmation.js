@@ -27,45 +27,41 @@ function Confirmation(){
     const dispatch = useDispatch() 
 
 
-async function getWarehouses(){
-    const config = {
-        headers:{
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin" : "*"
+    async function getWarehouses(){
+    
+        try{
+            
+            const params = {
+                "apiKey": "6954dc5c4df388e9361fa0812f491bcd",
+                "modelName": "Address",
+                "calledMethod": "getWarehouses",
+                "methodProperties": {
+                "CityName" : `${city}`,
+                "Page" : "1",
+                "Limit" : "400",
+                "Language" : "UA",
+                "TypeOfWarehouse": "841339c7-591a-42e2-8233-7a0a00f0ed6f"
+                }
+             }
+            const response = await axios.post(`https://api.novaposhta.ua/v2.0/json/`, params)
+            console.log(response.data)
+            setIsLoading('')
+            setPostPoints(response.data.data)
+           
+        }catch(e){
+            console.log(e)
         }
     }
-    try{
-        
-        const params = {
-            "apiKey": "6954dc5c4df388e9361fa0812f491bcd",
-            "modelName": "Address",
-            "calledMethod": "getWarehouses",
-            "methodProperties": {
-            "CityName" : `${city}`,
-            "Page" : "1",
-            "Limit" : "400",
-            "Language" : "UA",
-            "TypeOfWarehouse": "841339c7-591a-42e2-8233-7a0a00f0ed6f"
-            }
-         }
-        const response = await axios.post(`https://api.novaposhta.ua/v2.0/json/`, params, config)
-        console.log(response.data)
-        setIsLoading('')
-        setPostPoints(response.data.data)
-       
-    }catch(e){
-        console.log(e)
-    }
-}
-
-
-
-useEffect(()=>{
     
-    getWarehouses()
-    setIsLoading('')
-   
-},[city])
+    
+    
+    useEffect(()=>{
+        
+        getWarehouses()
+        setIsLoading('')
+       
+    },[city])
+    
 
 
 const intervalSetting = function (){

@@ -18,6 +18,7 @@ function OrderCart(){
         month:0,
     })
     const [total,setTotal] = useState(0)
+    const [isMobile,setIsMobile] = useState(false)
 
 const stateBasket = useSelector(state=>state.basketOrders.goods)
 // console.log(stateBasket)
@@ -202,6 +203,15 @@ function dateHandler(){
 
 
 
+useEffect(()=>{
+
+   if( window.innerWidth <= 550){
+    console.log('mobile')
+    setIsMobile(true)
+   }
+
+},[])
+
 
 
 return(
@@ -221,43 +231,46 @@ return(
                 <button className="confirm-btn date" onClick={dateHandler}>Вибрати </button>
             </div>
 
-            <div className="goods-wrapper">
-                <div className="heading">
-                    <span  className="fixedWidth">Фото</span>
-                    <span  className="fixedWidth name">Назва</span>
-                    <span  className="fixedWidth">Робочих днів</span>
-                    <span className="fixedWidth">Вихідних днів</span>
-                    <span className="fixedWidth">Тижнів</span>
-                    <span className="fixedWidth">Місяців</span>
-                    <span className="fixedWidth">Всього вартість</span>
-                    <span className="fixedWidth"></span>
-                    
-                </div>
+           
+                <div className="goods-wrapper">
+                    <div className={isMobile ? 'mobile' : 'mobile'}>
+                        <span  className="fixedWidth">Фото</span>
+                        <span  className="fixedWidth name">Назва</span>
+                        <span  className="fixedWidth">Робочих днів</span>
+                        <span className="fixedWidth">Вихідних днів</span>
+                        <span className="fixedWidth">Тижнів</span>
+                        <span className="fixedWidth">Місяців</span>
+                        <span className="fixedWidth">Всього вартість</span>
+                        <span className="fixedWidth"></span>
+                        
+                    </div>
 
-                {stateBasket.map(item=>{
-                    
-                    return (
-                        <div className='item'>
-                            <p className="fixedWidth"><img className="goodIMG" src = {`http://localhost:5000/uploadedIMG/${item.img1[0].filename}`}/></p>
-                            <div className="fixedWidth name">
-                                <p>{item.brand}</p>
-                                <p className="heavy">{item.model}</p>
+                    {stateBasket.map(item=>{
+                        
+                        return (
+                            <div className='item'>
+                                <p className="fixedWidth"><img className="goodIMG" src = {`http://localhost:5000/uploadedIMG/${item.img1[0].filename}`}/></p>
+                                <div className="fixedWidth name">
+                                    <p> {item.brand}</p>
+                                    <p className="heavy">{item.model}</p>
+                                </div>
+
+                                <p className="fixedWidth"><span>Будній день, грн</span><span className="day">{days.work || 0}</span> <span className='pricesmall'>{item.work_price} UAH</span></p>
+                                <p className="fixedWidth"><span>Вихідний день, грн</span><span className="day">{days.weekend ||0}</span><span className='pricesmall'>{item.weekend_price} UAH</span></p>
+                                <p className="fixedWidth"><span>Тиждень, грн</span><span className="day">{days.week || 0}</span><span className='pricesmall'>{item.week_price} UAH</span></p>
+                                <p className="fixedWidth"><span>Місяць, грн</span><span className="day">{days.month || 0}</span> <span className='pricesmall'>{item.month_price} UAH</span></p>
+                                <p className="fixedWidth"><span>Всього, грн</span> <span className='day' >{days.month*item.month_price + days.week*item.week_price + days.weekend*item.weekend_price +days.work*item.work_price || days.month*item.month_price} UAH</span></p>
+                                <p className="fixedWidth"><img className="basketIMG" onClick={deleteFromBasket} name={JSON.stringify(item)} src="/imagesHTML/icons/delete.png"/></p>
                             </div>
-
-                            <p className="fixedWidth"><span className="day">{days.work || 0}</span> <span className='pricesmall'>{item.work_price} UAH</span></p>
-                            <p className="fixedWidth"><span className="day">{days.weekend ||0}</span><span className='pricesmall'>{item.weekend_price} UAH</span></p>
-                            <p className="fixedWidth"><span className="day">{days.week || 0}</span><span className='pricesmall'>{item.week_price} UAH</span></p>
-                            <p className="fixedWidth"><span className="day">{days.month || 0}</span> <span className='pricesmall'>{item.month_price} UAH</span></p>
-                            <p className="fixedWidth"> <span className='day' >{days.month*item.month_price + days.week*item.week_price + days.weekend*item.weekend_price +days.work*item.work_price || days.month*item.month_price} UAH</span></p>
-                            <p className="fixedWidth"><img className="basketIMG" onClick={deleteFromBasket} name={JSON.stringify(item)} src="/imagesHTML/icons/delete.png"/></p>
-                        </div>
-                    )
-                }
-                )}  
+                        )
+                    }
+                    )}  
+                
+             
+                </div>
+                <button className="confirm-btn total">Всього: {stateTotalPrice} UAH </button>
+                <Link to='/ordersConfirmation'><button className="confirm-btn">ОФОРМИТИ ЗАМОВЛЕННЯ</button></Link>
             
-            <button className="confirm-btn total">Всього: {stateTotalPrice} UAH </button>
-            <Link to='/ordersConfirmation'><button className="confirm-btn">ОФОРМИТИ ЗАМОВЛЕННЯ</button></Link>
-            </div>
         </div>
     </main>
     <Footer></Footer>

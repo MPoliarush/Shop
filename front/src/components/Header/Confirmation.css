@@ -102,3 +102,42 @@ padding: 5px 10px;
     padding-top: 10px;
     color: rgb(206, 6, 6);
 }
+
+
+
+
+
+
+
+
+@media screen and (max-width:550px) {
+
+.deleveryType, .chooseCity, .post-point{
+    display: block;
+}
+.chooseCity label{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.input-div{
+    margin: 10px 0;
+}
+
+.deliv-wrapp{
+    width:80%;
+    padding: 25px 20px;
+}
+
+.chooseCity input{
+    width:160px;
+}
+
+.postSelect{
+    
+    max-width: 0;
+    min-width: 0;
+    width:100%;
+}
+
+}
