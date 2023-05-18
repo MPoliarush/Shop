@@ -1,21 +1,30 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {Link,useNavigate} from 'react-router-dom'
 
 
 
 function BurgerModal(props){
 
+const [trigg, setTrigg] = useState(false)
+
 
 
 function burgerClickHandler(){
-    console.log('clicked burger')
-     props.closing()
+    console.log(trigg)
+    console.log('clicked closing')
+    setTrigg(true) 
+   setTimeout(()=>{
+    props.closing()
+   },1000)
+    
 }
 
 
 
+
+
 return (
-    <div className='nav-list-burger'>
+    <div className={trigg ? 'nav-list-burger fading' : 'nav-list-burger'}>
         <ul>
             <li>КАТАЛОГ
                 <ul className='nested-list-burger'>
