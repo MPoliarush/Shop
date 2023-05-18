@@ -208,10 +208,13 @@ useEffect(()=>{
    if( window.innerWidth <= 550){
     console.log('mobile')
     setIsMobile(true)
+   } else if (window.innerWidth >550){
+    setIsMobile(false)
    }
 
 },[])
 
+console.log(isMobile)
 
 
 return(
@@ -233,7 +236,7 @@ return(
 
            
                 <div className="goods-wrapper">
-                    <div className={isMobile ? 'mobile' : 'mobile'}>
+                    <div className={isMobile ? 'mobile' : 'heading'}>
                         <span  className="fixedWidth">Фото</span>
                         <span  className="fixedWidth name">Назва</span>
                         <span  className="fixedWidth">Робочих днів</span>
@@ -255,11 +258,11 @@ return(
                                     <p className="heavy">{item.model}</p>
                                 </div>
 
-                                <p className="fixedWidth"><span>Будній день, грн</span><span className="day">{days.work || 0}</span> <span className='pricesmall'>{item.work_price} UAH</span></p>
-                                <p className="fixedWidth"><span>Вихідний день, грн</span><span className="day">{days.weekend ||0}</span><span className='pricesmall'>{item.weekend_price} UAH</span></p>
-                                <p className="fixedWidth"><span>Тиждень, грн</span><span className="day">{days.week || 0}</span><span className='pricesmall'>{item.week_price} UAH</span></p>
-                                <p className="fixedWidth"><span>Місяць, грн</span><span className="day">{days.month || 0}</span> <span className='pricesmall'>{item.month_price} UAH</span></p>
-                                <p className="fixedWidth"><span>Всього, грн</span> <span className='day' >{days.month*item.month_price + days.week*item.week_price + days.weekend*item.weekend_price +days.work*item.work_price || days.month*item.month_price} UAH</span></p>
+                                <p className="fixedWidth"><span className={!isMobile && 'hidden' }>Будній, грн</span><span className="day">{days.work || 0}</span> <span className='pricesmall'>{item.work_price} UAH</span></p>
+                                <p className="fixedWidth"><span className={!isMobile && 'hidden' }>Вихідний, грн</span><span className="day">{days.weekend ||0}</span><span className='pricesmall'>{item.weekend_price} UAH</span></p>
+                                <p className="fixedWidth"><span className={!isMobile && 'hidden' }>Тиждень, грн</span><span className="day">{days.week || 0}</span><span className='pricesmall'>{item.week_price} UAH</span></p>
+                                <p className="fixedWidth"><span className={!isMobile && 'hidden' }>Місяць, грн</span><span className="day">{days.month || 0}</span> <span className='pricesmall'>{item.month_price} UAH</span></p>
+                                <p className="fixedWidth"><span className={!isMobile && 'hidden' }>Всього, грн</span> <span className='day' >{days.month*item.month_price + days.week*item.week_price + days.weekend*item.weekend_price +days.work*item.work_price || days.month*item.month_price} UAH</span></p>
                                 <p className="fixedWidth"><img className="basketIMG" onClick={deleteFromBasket} name={JSON.stringify(item)} src="/imagesHTML/icons/delete.png"/></p>
                             </div>
                         )

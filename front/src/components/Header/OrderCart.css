@@ -76,6 +76,10 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     border-bottom: #EFEFEF 1px solid;
 }
 
+.hidden{
+    display: none;
+}
+
 .heading span{
     display: block;
     font-family: 'Ubuntu';
