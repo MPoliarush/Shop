@@ -11,20 +11,24 @@ footer{
 
 .subscribe{
     display: flex;
+    flex-wrap: wrap;
     padding: 20px 0;
+    align-items: center;
     border: none;
     justify-content: space-between;
    
 }
 
 .subscribe p{
-    width:15%;
+   min-width: 150px;
+   width:15%;
     font-family: 'Ubuntu';
 font-style: normal;
 font-weight: 700;
 font-size: 16px;
 line-height: 20px;
 color: aliceblue;
+margin-bottom: 10px;
 
 }
 
@@ -38,7 +42,8 @@ color: aliceblue;
 }
 
 .subscr-input input{
-    width: 80%;
+    width: 95%;
+    min-width:130px;
     padding: 10px;
     border: none;
 }
@@ -60,11 +65,14 @@ color: white;
     display: flex;
     margin-top: 50px;
     padding-bottom: 50px;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.ul-main-container li{
-    width: 25%;
+.ul-main-container>li{
+    width: 20%;
+    min-width: 200px;
+    margin-bottom: 20px;
 }
 
 .li-main{
@@ -84,3 +92,8 @@ color: #75758A;
 width: 70%;
 }
 
+
+
+@media screen and (max-width:1080px) {
+
+}

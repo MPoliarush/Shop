@@ -2,7 +2,7 @@
     font-family: 'Ubuntu', sans-serif;
     padding: 0;
     margin: 0;
-  
+    /* border: solid 1px; */
   } 
   
   ul{
@@ -21,12 +21,6 @@
     
   }
   
-  .content-container{
-    max-width: 1210px;
-    margin: 0 auto;
-    padding: 0 50px;
-   position: relative;
-  }
   
   header{
     display: flex;
@@ -43,9 +37,14 @@
   
   .logo{
     display: inline-block;
+    width: fit-content;
    position: relative;
    top:8px;
-   width:fit-content;
+ 
+  }
+
+  .logo img{
+    display: block;
   }
 
   .burger{
@@ -232,7 +231,7 @@
       top:00px;
       left:0;
       margin: 0 auto;
-      height: 100vw;
+      height: 100vh;
       width: 100vw;
       background-color: rgba(225, 246, 222, 0.4);
      backdrop-filter: blur(18px);
@@ -249,10 +248,10 @@
         height:0;
       }
       50%{
-        height:50wv;
+        height:50wh;
       }
       100%{
-        height:100wv;
+        height:100wh;
       }
     }
 
@@ -334,4 +333,45 @@
     }
 
     
+}
+
+
+@media screen and (max-width:550px) {
+
+  .content-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    position: relative;
+}
+
+  header{
+    display: block;
+    height: fit-content;
+    padding-bottom: 0px;
+  }
+
+  .logo{
+    margin-bottom: 30px;
+  }
+
+  .navAndlogin{
+   
+    width: 100%;
+    margin: 0 auto;
+  }
+  .nav-list img{
+    width:35px;
+    margin: 0 auto 10px;
+  }
+
+  .loginImgLi {
+    width: 5%;
+  }
+
+  .options-list{
+   flex-wrap: wrap;
+    width:100%;
+    justify-content: left;
+  }
+
 }

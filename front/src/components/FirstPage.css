@@ -306,7 +306,7 @@ box-sizing: border-box;
 .product-pricing-box-price{
   font-style: normal;
 font-weight: 700;
-font-size: 14px;
+font-size: 0.8rem;
 line-height: 20px;
 /* or 143% */
 
@@ -511,3 +511,47 @@ z-index: 10;
   }
 }
 
+
+
+
+
+@media screen and (max-width:1080px) {
+
+
+.slider-visible-wrapper {
+  
+width: 46.5%;
+}
+
+.arrow-left {
+  right: 15%;
+}
+
+.arrow-right {
+  left: 15%;
+}
+
+
+  .third-page-box {
+    width:90%;
+  }
+
+  .third-page-btns {
+      display: block;
+  }
+
+  .third-page-btns button{
+      width:55%;
+      margin-bottom: 15px;
+  }
+
+  .last-page-content {
+    display: flex;
+    width:60%;
+    margin: 0 auto;
+  }
+  .stote-data{
+    width: fit-content;
+  }
+
+}
