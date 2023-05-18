@@ -307,7 +307,7 @@ box-sizing: border-box;
   font-style: normal;
 font-weight: 700;
 font-size: 0.8rem;
-line-height: 20px;
+line-height: 15px;
 /* or 143% */
 
 text-align: center;
@@ -425,6 +425,7 @@ transition: 1s all;
 
 .image-box img{
   width: 350px;
+  min-width: 200px;
   height: 350px;
   object-fit: cover;
 }
@@ -515,11 +516,15 @@ z-index: 10;
 
 
 
+
+
+
+
+
 @media screen and (max-width:1080px) {
 
 
 .slider-visible-wrapper {
-  
 width: 46.5%;
 }
 
@@ -554,4 +559,46 @@ width: 46.5%;
     width: fit-content;
   }
 
+  .last-page img {
+    height: 500px;
+  }
+  .last-page-content{
+   
+    top:-430px;
+  }
+
+}
+
+
+
+
+
+@media screen and (max-width:550px) {
+
+  .first-page-text-container {
+    width:fit-content;
+  }
+
+  .first-page-row-block {
+    width:100%
+  }
+
+.slider-visible-wrapper {
+width:80%;
+}
+
+.third-page-btns button{
+width:90%;
+}
+
+  .image-box{
+    width:100%;
+    padding:0 ;
+  }
+
+  .image-box img{
+    width: 100%;
+    min-width: 0;
+    margin: 0 auto;
+  }
 }

@@ -43,7 +43,7 @@ margin-bottom: 10px;
 
 .subscr-input input{
     width: 95%;
-    min-width:130px;
+    min-width:100px;
     padding: 10px;
     border: none;
 }
@@ -94,6 +94,29 @@ width: 70%;
 
 
 
+
+
+
+
+
+
+
+
+
 @media screen and (max-width:1080px) {
+    .subscr-input label{
+        font-size: 1rem;
+    }
+
+}
+
+
+
+
+
+@media screen and (max-width:550px) {
+    .subscr-input label{
+        font-size: 3vw;
+    }
 
 }
