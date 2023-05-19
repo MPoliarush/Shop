@@ -1,6 +1,6 @@
 
 .orders{
-    margin-bottom: 00px;
+    padding-bottom: 100px;
 }
 
 
@@ -76,8 +76,12 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     border-bottom: #EFEFEF 1px solid;
 }
 
-.hidden{
+.hidden, .oldOrder.hidden {
     display: none;
+}
+
+.oldOrder.hidden {
+    margin: 0;
 }
 
 .heading span{
@@ -94,7 +98,6 @@ padding: 10px 0;
 }
 
 .item{
-    display: flex;
     align-items: center;
     padding: 20px 0px;
 }
@@ -106,7 +109,7 @@ padding: 10px 0;
 }
 
 .basketIMG{
-    width: 25%;
+    width: 35px;
 }
 
 .basketIMG:hover{
@@ -212,20 +215,18 @@ background: linear-gradient(180deg, #85dd02 0%, #3d7622 100%);
     }
 
     .item{
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
         width:100%;
     }
 
     .fixedWidth{
-        width:100%;
-        max-width: 300px;
+        width:150px;
+        max-width: 100px;
         margin: 0px auto 15px;
         align-items: center;
     }
 
-    .heading span{
-    margin-bottom: 20px;
-    }
 
     .confirm-btn.date{
         display: block;
@@ -261,4 +262,12 @@ background: linear-gradient(180deg, #85dd02 0%, #3d7622 100%);
     .basketIMG{
         width: 35px;
     }
+
+   .heading span>.mobileSpan{
+    font-weight: 700;
+    color: black;
+    padding-bottom: 5px;
+   }
+
+
 }

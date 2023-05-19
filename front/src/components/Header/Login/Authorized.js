@@ -29,6 +29,7 @@ function Authorized(){
     })
     const [oldOrders, setOldOrders]= useState([])
     const [success,setSuccess] = useState(null)
+    const [isMobile,setIsMobile] = useState(false)
 
     const stateLogin = useSelector(state=>state.client.clientData)
     const dispatch = useDispatch()
@@ -220,6 +221,24 @@ function logOutHandler(){
 }
 
 
+
+useEffect(()=>{
+
+    if( window.innerWidth <= 550){
+     console.log('mobile')
+     setIsMobile(true)
+    } else if (window.innerWidth >550){
+     setIsMobile(false)
+    }
+ 
+ },[])
+
+
+
+console.log(isMobile)
+
+
+
 return(
     <>
     <main>
@@ -286,25 +305,26 @@ return(
                 :
                 <div className="clientsOrdersHistory">
                     <div className="goods-wrapper">
-                        <div className="heading old">
+                        <div className={isMobile ? 'mobile' : 'heading old'}>
                             <span  className="fixedWidth">Фото</span>
                             <span  className="fixedWidth name">Назва</span>
                             <span  className="fixedWidth">Дата замовлення</span>
                             <span  className="fixedWidth">Період</span>
                             <span className="fixedWidth">Всього вартість, UAH</span>
-                            <span className="fixedWidth">Блабла</span>
                         </div>
 
                         { oldOrders.map(order=>{
                             return (
                                 <div className="heading old">
                                     <span  className="fixedWidth oldOrder">
+                                    
                                         {order.goodsID.map(good=> {
                                         return <img className="oldImgs" src = {`http://localhost:5000/uploadedIMG/${good.img1[0].filename}`} />}
                                         )}
                                        
                                     </span>
                                     <span  className="fixedWidth name oldOrder">
+                                    <span className={!isMobile ? 'oldOrder hidden' : 'mobileSpan'}>Товар</span>
                                         {order.goodsID.map(good=>{
                                             return (
                                                 <div>
@@ -314,10 +334,10 @@ return(
                                                 )
                                         })}
                                     </span>
-                                    <span  className="fixedWidth oldOrder">{order.dayOfOrder}</span>
-                                    <span  className="fixedWidth oldOrder"> <span className='period-span'>{order.daysAndPrice.since}</span> <span className='period-span'>{order.daysAndPrice.till}</span></span>
-                                    <span className="fixedWidth oldOrder">{order.daysAndPrice.totalPrice}</span>
-                                    <span className="fixedWidth oldOrder"></span>
+                                    <span  className="fixedWidth oldOrder"><span className={!isMobile ? 'oldOrder hidden' : 'mobileSpan' }>Дата замовлення</span>{order.dayOfOrder}</span>
+                                    <span  className="fixedWidth oldOrder"><span className={!isMobile ? 'oldOrder hidden' : 'mobileSpan' }>Період</span> <span className='period-span'>{order.daysAndPrice.since}</span> <span className='period-span'>{order.daysAndPrice.till}</span></span>
+                                    <span className="fixedWidth oldOrder"><span className={!isMobile ? 'oldOrder hidden' : 'mobileSpan' }>Вартість, грн</span>{order.daysAndPrice.totalPrice}</span>
+                                    
                                 </div>
                             )
                           }) 

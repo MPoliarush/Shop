@@ -94,7 +94,7 @@ console.log(activeBurger)
                     </li>
                     <li className='nav-li'><Link to='/about'>ПРО КОМПАНІЮ </Link></li>
                     <li className='nav-li'><Link to='/news'> НОВИНИ </Link></li>
-                    <li className='nav-li'><a href='#'>КОНТАКТИ</a></li>
+                    <li className='nav-li'><Link to='/contacts'>КОНТАКТИ</Link></li>
                     <img className='burger' src='imagesHTML/icons/burger.png' onClick={burgerClickHandler}/>
                   </ul>
                   : <BurgerModal closing={burgerClickHandler}></BurgerModal>

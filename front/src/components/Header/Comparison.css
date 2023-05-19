@@ -34,13 +34,11 @@ cursor: pointer;
 }
 
 .labels{
-    min-width:180px;
+   
     text-align: center;
 }
 
-.labels.lables{
-    width: 25%;
-}
+
 
 .labels.lables p {
     font-weight: 700;
@@ -58,9 +56,8 @@ cursor: pointer;
     height: 35px;
 }
 
-.column{
-    width:180px;
-    text-align: center;
+.labels.column{
+    width:150px;
 }
 
 .data{
@@ -68,7 +65,7 @@ cursor: pointer;
    width:74%;
    justify-content: left;
    overflow-x: scroll;
-   gap:3%;
+   gap:8%;
    min-width:180px
 }
 
@@ -97,4 +94,29 @@ cursor: pointer;
 .labels.sticky.photoBlock{
     height: 140px;
     padding: 0;
+}
+
+
+
+@media screen and (max-width:550px) {
+
+
+   .data{
+    min-width: 130px;
+    width: 130px;
+   }
+
+   .labels.column.comparedFeature{
+    font-size: 13px;
+   }
+
+   .compareImg{
+    height: 70px;
+   }
+
+   
+
+   .labels.lables p {
+    font-size: 13px;
+   }
 }

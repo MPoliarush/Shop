@@ -1,12 +1,18 @@
 
+*{
+    /* border: solid; */
+}
 
 footer{
- margin-top: 200px;
+ position: absolute;
+ width:100%;
+ top:100%;
 }
 
 .footer-wrap{
     background-color: #75758A;
     border: none;
+    width:100%;
 }
 
 .subscribe{

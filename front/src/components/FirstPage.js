@@ -102,8 +102,8 @@ console.log(loading)
             <div className='second-page'>
               <div className='content-container-second-page'>
                   <h3 className='second-page-header'><span>ПОПУЛЯРНІ </span>ТОВАРИ</h3>
-                  <img className='arrow-right' src={process.env.PUBLIC_URL + '/imagesHTML/icons/left.png'} alt='user'/>
-                  <img className='arrow-left' src={process.env.PUBLIC_URL + '/imagesHTML/icons/right.png'} alt='user'/>
+                  {/* <img className='arrow-right' src={process.env.PUBLIC_URL + '/imagesHTML/icons/left.png'} alt='user'/>
+                  <img className='arrow-left' src={process.env.PUBLIC_URL + '/imagesHTML/icons/right.png'} alt='user'/> */}
                   <div className='slider-visible-wrapper'>
                       <ul className='slider-string'>
 

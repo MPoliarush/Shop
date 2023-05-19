@@ -1,10 +1,19 @@
-/* *{
-  border: solid 1px;
-} */
 
+  border: solid 1px;
+
+html{
+   position: relative;
+  min-height: 100vh;
+} */
+html{
+  position: relative;
+  min-height: 100vh;
+}
 
 body{
   max-width: 100%;
+  position: relative;
+  min-height: 100vh;
 }
 
 main{
@@ -411,17 +420,16 @@ transition: 1s all;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin-top: 50px;
+  
+  margin: 50px auto 0;
 }
 
 .image-box{
   position: relative;
   padding-top: 70px;
+  margin: 0px auto 0;
 }
 
-.image-box:nth-of-type(4){
-  width: 755px;
-}
 
 .image-box:nth-of-type(4) img{
   width:100%;
@@ -529,7 +537,9 @@ z-index: 10;
 
 
 .slider-visible-wrapper {
-width: 46.5%;
+
+max-width:480px;
+padding-right: 0;
 }
 
 .arrow-left {
@@ -575,6 +585,16 @@ width: 46.5%;
     width:100%;
   }
 
+  .card-frame{
+    width:100%;
+    min-width: 240px;
+    max-width: 240px;
+  }
+
+  .product-pricing-box-price{
+    display: block;
+  }
+
 }
 
 
@@ -586,6 +606,12 @@ width: 46.5%;
 
   .product-pricing{
     flex-wrap: wrap;
+    margin-right: 0;
+    width:102%;
+  }
+
+  .product-pricing-box{
+    width:49%;
   }
 
   .product-pricing-box-price{
@@ -595,15 +621,18 @@ width: 46.5%;
 
   .first-page-text-container {
     width:fit-content;
+    font-size: 25px;
+    width:270px;
   }
 
   .first-page-row-block {
-    width:100%
+    width:100%;
+    margin:10px 0;
   }
 
-.slider-visible-wrapper {
-width:80%;
-}
+  .slider-visible-wrapper {
+  max-width: 240px;
+  }
 
 .third-page-btns button{
 width:90%;
@@ -624,12 +653,22 @@ width:90%;
   .card-farame.news-goods{
     margin: 0 auto;
     width:fit-content;
+   
+
   }
-
-
 
     .news li{
       margin: 0 auto;
     }
+
+
+    .product-img-wrapper {
+      width:150px;
+    }
+
+    .product-options a, .product-options button{
+      font-size: 12px;
+    }
+
 
 }

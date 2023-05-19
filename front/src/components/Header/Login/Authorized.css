@@ -68,3 +68,28 @@ margin: 7px 0;
     width:45%;
     margin-top: 15px;
 }
+
+
+
+
+@media screen and (max-width:550px) {
+
+    .personalPage{
+        padding-bottom: 50px;
+    }
+    .oldImgs{
+
+        width:100%;
+        margin-top: 15px;
+    }
+
+    .fixedWidth.oldOrder {
+        margin: 0 auto;
+    }
+
+    .old{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+}

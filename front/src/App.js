@@ -3,6 +3,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 import FirstPage from './components/FirstPage';
 import News from './components/News/News';
+import Contacts from './components/Contacts/Contacts';
 import AboutCompany from './components/AboutCompany/AboutCompany';
 import CatalogCamera from './components/Catalogs/CatalogCamera';
 import Root from './Root'
@@ -27,6 +28,7 @@ function App() {
     element: <Root />, 
     children:[
       {path:'', element:<FirstPage />},
+      {path:'/contacts', element:<Contacts />},
       {path:'/news', element:<News />},
       {path:'/about', element:<AboutCompany />},
       {path:'/login', element:<Login />},
@@ -50,7 +52,6 @@ function App() {
     <RouterProvider router={router}>
       
     </RouterProvider>
-    // <Main></Main>
   );
 }
 
