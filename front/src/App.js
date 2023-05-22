@@ -3,6 +3,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 
 import FirstPage from './components/FirstPage';
 import News from './components/News/News';
+import Contacts from './components/Contacts/Contacts';
 import AboutCompany from './components/AboutCompany/AboutCompany';
 import CatalogCamera from './components/Catalogs/CatalogCamera';
 import Root from './Root'
@@ -30,6 +31,7 @@ function App() {
     children:[
       {path:'', element:<FirstPage />},
       {path:'/news', element:<News />},
+      {path:'/contacts', element:<Contacts />},
       {path:'/about', element:<AboutCompany />},
       {path:'/login', element:<Login />},
       {path:'/login/registration', element:<Registration />},
