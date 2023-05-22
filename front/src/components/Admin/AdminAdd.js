@@ -39,7 +39,7 @@ function AdminAdd(){
 
     async function getInfo () {
         try{
-            const response = await axios("http://localhost:5000/products")
+            const response = await axios("https://shop-apps.onrender.com/products")
             console.log(response.data)
             setFetchedData(response.data)
         }catch(e){
@@ -225,22 +225,10 @@ async function submitHandler(event){
             "Content-Type": "multipart/form-data"
         }
     }
-    const response = await axios.post('http://localhost:5000/admin', formData, config )
+    const response = await axios.post('https://shop-apps.onrender.com/admin', formData, config )
     console.log(response)
 
    
-    // let inputData = input
-    // fetch('http://localhost:5000/admin',{
-    //     method:'POST',
-    //     headers:{
-    //         "Content-Type": "application/json",
-    //         "Access-Control-Allow-Origin" : "*"
-    //     },
-    //     body:JSON.stringify(inputData)
-    //     }
-    // ).then(res=>res.json()).then(data=>{
-    //     console.log(data)
-    // })
 
     const clearedData={
         typeGoods:null,

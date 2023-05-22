@@ -1,10 +1,10 @@
 
-  border: solid 1px;
 
 html{
    position: relative;
   min-height: 100vh;
-} */
+}
+
 html{
   position: relative;
   min-height: 100vh;
@@ -164,7 +164,7 @@ color: #000000;
 .content-container-second-page{
   max-width: 1210px;
   margin: 0 auto;
-  /* padding: 0 50px; */
+ 
   position: relative;
 }
 
@@ -179,7 +179,7 @@ color: #000000;
 }
 
 .slider-visible-wrapper{
-  /* border: solid; */
+
   max-width: 1110px;
   margin: 0 auto;
   padding: 0 10px;
@@ -317,15 +317,15 @@ box-sizing: border-box;
 }
 
 .product-pricing-box-price{
+  display: block;
   font-style: normal;
 font-weight: 700;
 font-size: 0.8rem;
 line-height: 15px;
-/* or 143% */
 
 text-align: center;
 color: #000000;
-display: inline-block;
+
 }
 
 
@@ -525,6 +525,17 @@ z-index: 10;
 }
 
 
+.liked-wrapp{
+  display: flex;
+  gap:5%;
+  margin-top: 50px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.like-item{
+  margin-bottom: 40px;
+}
 
 
 

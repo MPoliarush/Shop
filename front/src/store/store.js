@@ -51,6 +51,26 @@ const compareSlice = createSlice({
 })
 
 
+const likeBasic = {items:[]}
+const likeSlice = createSlice({
+    name:'likedGoods',
+    initialState:likeBasic,
+    reducers:{
+        addToLiked(state,action){
+            state.items.push(action.payload)
+            console.log(action.payload)
+        },
+        removeFromLiked(state,action){
+            const filteredGoods = state.items.filter(item=>{
+                return action.payload._id !== item._id
+            })
+            console.log(filteredGoods)
+            state.items = filteredGoods
+        }
+    }
+})
+
+
 const clientBasic = {clientData:null}
 const clientSlice = createSlice({
     name:'clientData',
@@ -109,11 +129,34 @@ const totalDaysSlice = createSlice({
 
 
 
+const adminBasic = {adminData:null}
+const adminSlice = createSlice({
+    name:'adminData',
+    initialState:adminBasic,
+    reducers:{
+        loginAdminIn(state,action){
+        
+            state.adminData = action.payload
+            console.log(action.payload)
+        },
+        logAdminOut(state){
+            state.adminData = null
+            console.log('logged out')
+            
+        }
+    }
+})
+
+
+
+
 const reducer = combineReducers({
     basketOrders:orderSlice.reducer, 
     comparison:compareSlice.reducer,
+    like:likeSlice.reducer,
     client:clientSlice.reducer,
-    rentalDays:totalDaysSlice.reducer
+    rentalDays:totalDaysSlice.reducer,
+    admin:adminSlice.reducer,
 })
 
 const persistedReducer = persistReducer(persistConfig,reducer )
@@ -122,18 +165,12 @@ const store = configureStore({
     reducer: persistedReducer
 })
 
-// const store = configureStore({
-//     reducer: {
-//         basketOrders:orderSlice.reducer, 
-//         comparison:compareSlice.reducer,
-//         client:clientSlice.reducer,
-//         rentalDays:totalDaysSlice.reducer
-//     }
-// })
 
 export const orderActions = orderSlice.actions;
 export const compareActions = compareSlice.actions;
+export const likeActions = likeSlice.actions;
 export const clientActions = clientSlice.actions;
 export const totalDaysActions = totalDaysSlice.actions;
+export const adminActions = adminSlice.actions;
 
 export default store;

@@ -40,7 +40,7 @@ function addToBasket(){
         {props.data.typeGoods=='Фотокамера' ?
             <div className='labels column'>
                 <div className="comparedFeature photoBlock">
-                    <img className="compareImg" src={`http://localhost:5000/uploadedIMG/${props.data.img1[0].filename}`} />
+                    <img className="compareImg" src={`https://shop-apps.onrender.com/uploadedIMG/${props.data.img1[0].filename}`} />
                     <img className="delete-compar-btn" src="/imagesHTML/icons/delete.png" onClick={deleteFromBasket} />
                 </div>
                 
@@ -64,7 +64,7 @@ function addToBasket(){
             </div>
         : <div className='labels column'>
                 <div className="comparedFeature photoBlock">
-                    <img className="compareImg" src={`http://localhost:5000/uploadedIMG/${props.data.img1[0].filename}`} />
+                    <img className="compareImg" src={`https://shop-apps.onrender.com/uploadedIMG/${props.data.img1[0].filename}`} />
                     <img className="delete-compar-btn" src="/imagesHTML/icons/delete.png" onClick={deleteFromBasket} />
                 </div>
                 

@@ -16,7 +16,7 @@ const [fetchedData, setFetchedData] = useState([])
 
 async function getInfo () {
     try{
-        const response = await axios("http://localhost:5000/cameras")
+        const response = await axios("https://shop-apps.onrender.com/cameras")
         console.log(response.data)
         const receivedData = response.data.slice(0,2)
         setFetchedData(receivedData)

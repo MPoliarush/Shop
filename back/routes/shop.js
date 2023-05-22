@@ -163,6 +163,36 @@ router.post('/linse-filters',async (req,res)=>{
 
 
 
+
+
+router.post('/adminLogin', (req,res)=>{
+   console.log(req.body)
+   let findAdmin={
+      login:'',
+      password:''
+   }
+   try{
+         if(req.body.login=='merienf@ukr.net' && req.body.password=='12345678'){
+            findAdmin.login=req.body.login
+            findAdmin.password=req.body.password
+         } else {
+            findAdmin.login=false
+            findAdmin.password=false
+         }
+         
+     }catch(e){
+      findAdmin = 'error'
+     }
+
+     console.log(findAdmin)
+
+     res.send(findAdmin)
+
+})
+
+
+
+
 router.post('/admin',upload.array("imgS"), async (req,res)=>{
 
    const imgS = req.files

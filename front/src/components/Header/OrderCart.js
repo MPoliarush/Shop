@@ -252,7 +252,7 @@ return(
                         
                         return (
                             <div className='item'>
-                                <p className="fixedWidth"><img className="goodIMG" src = {`http://localhost:5000/uploadedIMG/${item.img1[0].filename}`}/></p>
+                                <p className="fixedWidth"><img className="goodIMG" src = {`https://shop-apps.onrender.com/uploadedIMG/${item.img1[0].filename}`}/></p>
                                 <div className="fixedWidth name">
                                     <p> {item.brand}</p>
                                     <p className="heavy">{item.model}</p>

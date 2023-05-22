@@ -74,7 +74,7 @@ function Login(){
                     "Access-Control-Allow-Origin":'*'
                 }
             }
-            checkingUser = await axios.post('http://localhost:5000/getClient',clientCreds,config)
+            checkingUser = await axios.post('https://shop-apps.onrender.com/getClient',clientCreds,config)
             if(!checkingUser.data){
                 setUserFound('Користувача не знайдено')
                 return

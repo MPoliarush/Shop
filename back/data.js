@@ -19,7 +19,7 @@ const MongoClient = mongodb.MongoClient;
 let database;
 
 async function connectToDatabase() {
-  const client = await MongoClient.connect("mongodb://127.0.0.1:27017");
+  const client = await MongoClient.connect("mongodb+srv://poliarushmaryna:jlfxPtT7ChrfRzPv@cluster0.i7gg2a6.mongodb.net/catalog?retryWrites=true&w=majority");
   database = client.db('catalog');
 }
 

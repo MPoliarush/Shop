@@ -13,6 +13,7 @@ function Header(props){
 
 const stateBasket = useSelector(state=>state.basketOrders.goods)
 const stateCompare = useSelector(state=>state.comparison.items)
+const stateLiked = useSelector(state=>state.like.items)
 const stateLogin = useSelector(state=>state.client.clientData)
 let navigate = useNavigate();
 
@@ -41,7 +42,7 @@ async function getClientData(){
   }
   
   try{
-      const response = await axios.post('http://localhost:5000/getClient', stateLogin, config )
+      const response = await axios.post('https://shop-apps.onrender.com/getClient', stateLogin, config )
       console.log(response.data)
       setClientName(response.data)
   } catch(e){
@@ -103,10 +104,9 @@ console.log(activeBurger)
 
                 </nav>
                 <ul className='options-list'>
-                  <Link to='#'> <li><img src='/imagesHTML/icons/star.png' alt='star' onMouseOver={e => (e.currentTarget.src = '/imagesHTML/icons/starHovered.png')} onMouseOut={e => (e.currentTarget.src =  '/imagesHTML/icons/star.png')} /></li> </Link>
+                  <Link to='/liked'> <li><img src='/imagesHTML/icons/star.png' alt='star' onMouseOver={e => (e.currentTarget.src = '/imagesHTML/icons/starHovered.png')} onMouseOut={e => (e.currentTarget.src =  '/imagesHTML/icons/star.png')} /> <span className={stateLiked.length !=0 ? 'iconNumber' : ''}>{stateLiked.length==0 ? '' : stateLiked.length}</span>  </li> </Link>
                   <Link to='/comparison'> <li><img src='/imagesHTML/icons/compare.png' alt='compare' onMouseOver={e => (e.currentTarget.src = process.env.PUBLIC_URL + '/imagesHTML/icons/compareHovered.png')} onMouseOut={e => (e.currentTarget.src = process.env.PUBLIC_URL + '/imagesHTML/icons/compare.png')} /> <span className={stateCompare.length !=0 ? 'iconNumber' : ''}>{stateCompare.length==0 ? '' : stateCompare.length}</span>  </li> </Link>
                   <Link to='/orders'> <li><img src='/imagesHTML/icons/basket1.png' alt='basket' onMouseOver={e => (e.currentTarget.src = process.env.PUBLIC_URL + '/imagesHTML/icons/basket1Hovered.png')} onMouseOut={e => (e.currentTarget.src = process.env.PUBLIC_URL + '/imagesHTML/icons/basket1.png')}/> <span className={stateBasket.length !=0 ? 'iconNumber' : ''}> {stateBasket.length==0 ? '' : stateBasket.length}</span> </li> </Link>
-                  <Link to='#'> <li><img src= '/imagesHTML/icons/search.png' alt='find' onMouseOver={e => (e.currentTarget.src = process.env.PUBLIC_URL + '/imagesHTML/icons/searchHovered.png')} onMouseOut={e => (e.currentTarget.src = process.env.PUBLIC_URL + '/imagesHTML/icons/search.png')} /></li> </Link>
                   <li className='loginImgLi' onClick={loginIconClickHandler}><img className='loginImg' src='/imagesHTML/icons/user.png' alt='user' onMouseOver={e => (e.currentTarget.src = process.env.PUBLIC_URL + '/imagesHTML/icons/userHovered.png')} onMouseOut={e => (e.currentTarget.src = process.env.PUBLIC_URL + '/imagesHTML/icons/user.png')}  /><span className={clientName.length !=0 ? 'iconNumber clientName' : ''}> {clientName.name==0 ? '' : clientName.name} </span>  </li>
 
                 </ul>

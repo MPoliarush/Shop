@@ -20,7 +20,7 @@ function CatalogLinse(){
 
 async function getInfo (props) {
     try{
-        const response = await axios("http://localhost:5000/linses")
+        const response = await axios("https://shop-apps.onrender.com/linses")
         console.log(response.data)
         const sortedUp = response.data.sort((a,b)=>{
             return a.work_price-b.work_price
@@ -207,7 +207,7 @@ async function filterHandler(e){
     console.log(filterList)
 
     let inputData = filterList
-    fetch('http://localhost:5000/linse-filters',{
+    fetch('https://shop-apps.onrender.com/linse-filters',{
         method:'POST',
         headers:{
             "Content-Type": "application/json",

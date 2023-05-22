@@ -27,7 +27,7 @@ function Authorized(){
         email:'',
         password:''
     })
-    const [oldOrders, setOldOrders]= useState([])
+    const [oldOrders, setOldOrders]= useState()
     const [success,setSuccess] = useState(null)
     const [isMobile,setIsMobile] = useState(false)
 
@@ -49,7 +49,7 @@ function Authorized(){
         }
         
         try{
-            const response = await axios.post('http://localhost:5000/getClient', stateLogin, config )
+            const response = await axios.post('https://shop-apps.onrender.com/getClient', stateLogin, config )
             // console.log(response.data)
             setPredefinedData(response.data)
         } catch(e){
@@ -196,14 +196,14 @@ async function updateData(){
         }
     }
 
-    const updading = await axios.post('http://localhost:5000/clientUpdate', predefinedData ,config)
+    const updading = await axios.post('https://shop-apps.onrender.com/clientUpdate', predefinedData ,config)
    
 
 }
 
 
 async function gerOrderHistory(){
-    const orders = await axios.post('http://localhost:5000/getOrderHistory', stateLogin)
+    const orders = await axios.post('https://shop-apps.onrender.com/getOrderHistory', stateLogin)
     setOldOrders(orders.data.orders)
 }
 
@@ -313,13 +313,13 @@ return(
                             <span className="fixedWidth">Всього вартість, UAH</span>
                         </div>
 
-                        { oldOrders.map(order=>{
+                        {oldOrders ? oldOrders.map(order=>{
                             return (
                                 <div className="heading old">
                                     <span  className="fixedWidth oldOrder">
                                     
                                         {order.goodsID.map(good=> {
-                                        return <img className="oldImgs" src = {`http://localhost:5000/uploadedIMG/${good.img1[0].filename}`} />}
+                                        return <img className="oldImgs" src = {`https://shop-apps.onrender.com/uploadedIMG/${good.img1[0].filename}`} />}
                                         )}
                                        
                                     </span>
@@ -341,6 +341,7 @@ return(
                                 </div>
                             )
                           }) 
+                          :''
                         }
                        
 

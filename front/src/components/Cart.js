@@ -1,7 +1,7 @@
 import { useState,useEffect } from "react"
 import {Link, useParams} from 'react-router-dom'
 import { useSelector,useDispatch } from "react-redux"
-import {orderActions, compareActions} from '../store/store'
+import {orderActions, compareActions, likeActions} from '../store/store'
 
 
 function Cart(props){
@@ -10,9 +10,11 @@ function Cart(props){
 // console.log(props.itemData)
 const[cartPathNew, setCartPathNew] = useState('')
 const [added,setAdded] = useState("В кошик")
-const [compared,setCompared] = useState('http://localhost:3000/imagesHTML/icons/compare.png')
+const [compared,setCompared] = useState('/imagesHTML/icons/compare.png')
+const [liked,setLiked] = useState('/imagesHTML/icons/star.png')
 const stateBasket = useSelector(state=>state.basketOrders.goods)
 const stateCompare = useSelector(state=>state.comparison.items)
+const stateLike = useSelector(state=>state.like.items)
 
 const dispatch = useDispatch()
 
@@ -28,7 +30,16 @@ useEffect(()=>{
 useEffect(()=>{
     const elementInCompare = stateCompare.find(el=> el._id== props.itemData._id)
     if (elementInCompare){
-        setCompared('http://localhost:3000/imagesHTML/icons/done.png')
+        setCompared('/imagesHTML/icons/done.png')
+    } 
+    
+},[])
+
+
+useEffect(()=>{
+    const elementInlike = stateLike.find(el=> el._id== props.itemData._id)
+    if (elementInlike){
+        setLiked('/imagesHTML/icons/starHovered.png')
     } 
     
 },[])
@@ -40,6 +51,7 @@ let cartPath=''
     } else if (props.itemData.typeGoods=='Лінза'){
         cartPath = `/linses/view/${props.itemData._id}`
     }
+
 
 function addToBasket(){
     if(added=='В кошик'){
@@ -54,15 +66,41 @@ function addToBasket(){
 
 function addToCompare(e){
     console.log(e.currentTarget.src)
-    if(e.currentTarget.src == 'http://localhost:3000/imagesHTML/icons/done.png'){
+    const url=e.currentTarget.src
+    const index = url.indexOf('/imagesHTML')
+    const trimmedStart= e.currentTarget.src.slice(0,index)
+    const trimmedEnd = e.currentTarget.src.slice(index)
+    console.log(trimmedStart)
+    console.log(trimmedEnd)
+    if(trimmedEnd == '/imagesHTML/icons/done.png'){
         dispatch(compareActions.removeFromCompare(props.itemData))
-        e.currentTarget.src = 'http://localhost:3000/imagesHTML/icons/compare.png'
+        e.currentTarget.src = '/imagesHTML/icons/compare.png'
         console.log('first', e.currentTarget.src)
-    } else if(e.currentTarget.src == 'http://localhost:3000/imagesHTML/icons/compare.png'){
+    } else if(trimmedEnd == '/imagesHTML/icons/compare.png'){
         dispatch(compareActions.addToCompare(props.itemData))
-        e.currentTarget.src = 'http://localhost:3000/imagesHTML/icons/done.png'
+        e.currentTarget.src = '/imagesHTML/icons/done.png'
         console.log('second', e.currentTarget.src)
     }  
+}
+
+function addToLiked(e){
+    console.log(e.currentTarget.src)
+    const url=e.currentTarget.src
+    const index = url.indexOf('/imagesHTML')
+    const trimmedStart= e.currentTarget.src.slice(0,index)
+    const trimmedEnd = e.currentTarget.src.slice(index)
+    console.log(trimmedStart)
+    console.log(trimmedEnd)
+    if(trimmedEnd == '/imagesHTML/icons/starHovered.png'){
+        dispatch(likeActions.removeFromLiked(props.itemData))
+        e.currentTarget.src = '/imagesHTML/icons/star.png'
+        console.log('first', e.currentTarget.src)
+    } else if(trimmedEnd == '/imagesHTML/icons/star.png'){
+        dispatch(likeActions.addToLiked(props.itemData))
+        e.currentTarget.src = '/imagesHTML/icons/starHovered.png'
+        console.log('second', e.currentTarget.src)
+    }  
+
 }
 
 
@@ -70,12 +108,12 @@ function addToCompare(e){
         
     <li className='card-frame news-goods'>
         <div className='product-info'>
-          <div className='product-img-wrapper'><img src={`http://localhost:5000/uploadedIMG/${props.itemData.img1[0].filename}`} className='product-img' alt='user'/></div>
+          <div className='product-img-wrapper'><img src={`https://shop-apps.onrender.com/uploadedIMG/${props.itemData.img1[0].filename}`} className='product-img' alt='user'/></div>
           <p className='model'>{props.itemData.model}</p>
           <p className='brand'>{props.itemData.brand}</p>
           <div className='card-block-nav'>
               <img src={compared} onClick={addToCompare} alt='compare' />
-              <img src='/imagesHTML/icons/star.png' alt='star' onMouseEnter={e => (e.currentTarget.src = process.env.PUBLIC_URL + '/imagesHTML/icons/starHovered.png')} onMouseLeave={e => (e.currentTarget.src = process.env.PUBLIC_URL + '/imagesHTML/icons/star.png')}  />
+              <img src={liked} alt='star' onClick={addToLiked} />
           </div>
         </div>
         <div className='product-pricing'>

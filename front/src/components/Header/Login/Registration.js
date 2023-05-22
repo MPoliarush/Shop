@@ -164,7 +164,7 @@ function Registration(){
         }
         console.log(client)
         try{
-            const response = await axios.post('http://localhost:5000/newClient', client, config )
+            const response = await axios.post('https://shop-apps.onrender.com/newClient', client, config )
         } catch(e){
             console.log(e)
         }

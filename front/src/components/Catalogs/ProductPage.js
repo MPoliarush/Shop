@@ -1,7 +1,7 @@
 import {useState, useEffect,useRef} from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector,useDispatch } from "react-redux"
-import {orderActions,compareActions} from '../../store/store'
+import {orderActions,compareActions, likeActions} from '../../store/store'
 import axios from "axios";
 import Cart from '../Cart';
 import Footer from '../Footer';
@@ -41,18 +41,19 @@ function ProductPage(){
     const [fetchedData, setFetchedData] = useState([])
     const [fetchedDataFiltered, setFetchedDataFiltered] = useState([])
     const [added,setAdded] = useState("В кошик")
-    const [compared,setCompared] = useState('http://localhost:3000/imagesHTML/icons/compare.png')
+    const [compared,setCompared] = useState('/imagesHTML/icons/compare.png')
+    const [liked,setLiked] = useState('/imagesHTML/icons/star.png')
     const params = useParams()
     const dispatch = useDispatch()
     const stateBasket = useSelector(state=>state.basketOrders.goods)
     const stateCompare = useSelector(state=>state.comparison.items)
-
+    const stateLike = useSelector(state=>state.like.items)
 
 
 
 async function getInfo () {
     try{
-        const response = await axios("http://localhost:5000/products")
+        const response = await axios("https://shop-apps.onrender.com/products")
         
         setFetchedData(response.data)
         let filtered = response.data.filter(item=>{
@@ -75,7 +76,7 @@ useEffect(()=>{
     async function getCartData(){
         console.log(params.id)
         try{
-            const response = await axios(`http://localhost:5000/products/${params.id}`)
+            const response = await axios(`https://shop-apps.onrender.com/products/${params.id}`)
            
            
             setInput(response.data)
@@ -175,6 +176,8 @@ useEffect(()=>{
     } 
 },[input])
 
+
+
 function addToBasket(){
    
     if(added=='В кошик'){
@@ -194,52 +197,109 @@ useEffect(()=>{
     console.log(stateCompare)
     console.log(elementInCompare)
     if (elementInCompare){
-        setCompared('http://localhost:3000/imagesHTML/icons/done.png')
+        setCompared('/imagesHTML/icons/done.png')
     } else {
-        setCompared('http://localhost:3000/imagesHTML/icons/compare.png')
+        setCompared('/imagesHTML/icons/compare.png')
     }
 
 },[input])
 
+
+useEffect(()=>{
+    const elementInLike= stateLike.find(el=> el._id== input._id)
+    console.log(stateLike)
+    console.log(elementInLike)
+    if (elementInLike){
+        setLiked('/imagesHTML/icons/starHovered.png')
+    } else {
+        setLiked('/imagesHTML/icons/star.png')
+    }
+
+    console.log(liked)
+
+},[input])
+
+
+
 function addToCompare(e){
   
+    // console.log(e.currentTarget.src)
+    // if(e.currentTarget.src == '/imagesHTML/icons/done.png'){
+    //     dispatch(compareActions.removeFromCompare(input))
+    //     e.currentTarget.src = '/imagesHTML/icons/compare.png'
+    //     console.log('first', e.currentTarget.src)
+    // } else if(e.currentTarget.src !== '/imagesHTML/icons/done.png'){
+    //     dispatch(compareActions.addToCompare(input))
+    //     e.currentTarget.src = '/imagesHTML/icons/done.png'
+    //     console.log('second', e.currentTarget.src)
+    // } 
+
     console.log(e.currentTarget.src)
-    if(e.currentTarget.src == 'http://localhost:3000/imagesHTML/icons/done.png'){
+    const url=e.currentTarget.src
+    const index = url.indexOf('/imagesHTML')
+    const trimmedStart= e.currentTarget.src.slice(0,index)
+    const trimmedEnd = e.currentTarget.src.slice(index)
+    console.log(trimmedStart)
+    console.log(trimmedEnd)
+    if(trimmedEnd == '/imagesHTML/icons/done.png'){
         dispatch(compareActions.removeFromCompare(input))
-        e.currentTarget.src = 'http://localhost:3000/imagesHTML/icons/compare.png'
+        e.currentTarget.src = '/imagesHTML/icons/compare.png'
         console.log('first', e.currentTarget.src)
-    } else if(e.currentTarget.src !== 'http://localhost:3000/imagesHTML/icons/done.png'){
+    } else if(trimmedEnd == '/imagesHTML/icons/compare.png'){
         dispatch(compareActions.addToCompare(input))
-        e.currentTarget.src = 'http://localhost:3000/imagesHTML/icons/done.png'
+        e.currentTarget.src = '/imagesHTML/icons/done.png'
         console.log('second', e.currentTarget.src)
-    } 
+    }  
+}
+
+
+
+
+function addToLiked(e){
+    console.log(e.currentTarget.src)
+    console.log(e.currentTarget.src)
+    const url=e.currentTarget.src
+    const index = url.indexOf('/imagesHTML')
+    const trimmedStart= e.currentTarget.src.slice(0,index)
+    const trimmedEnd = e.currentTarget.src.slice(index)
+    console.log(trimmedStart)
+    console.log(trimmedEnd)
+    if(trimmedEnd == '/imagesHTML/icons/starHovered.png'){
+        dispatch(likeActions.removeFromLiked(input))
+        e.currentTarget.src = '/imagesHTML/icons/star.png'
+        console.log('first', e.currentTarget.src)
+    } else if(trimmedEnd == '/imagesHTML/icons/star.png'){
+        dispatch(likeActions.addToLiked(input))
+        e.currentTarget.src = '/imagesHTML/icons/starHovered.png'
+        console.log('second', e.currentTarget.src)
+    }  
 }
 
 
     return (
         <>
         <main>
-            <div className="content-container-admin">
+            <div className="content-container">
                 {input.typeGoods=="Фотокамера"? <h1 className='catalog-h1'>ФОТОКАМЕРИ</h1> : input.typeGoods=="Лінза"? <h1 className='catalog-h1'>ЛІНЗИ </h1>:'' }
                 <div className="single">
                     <div className='cart-block'>
                         <div className='card-frame-single'>
-                            <div>
+                            <div className='small-comt-wrapper'>
                                 {imgArray.map(img=>{
-                                    return <div className='small-cont'><img className='small' onClick={replacePhoto} src={`http://localhost:5000/uploadedIMG/${img.filename}`} name={img.filename} /></div> 
+                                    return <div className='small-cont'><img className='small' onClick={replacePhoto} src={`https://shop-apps.onrender.com/uploadedIMG/${img.filename}`} name={img.filename} /></div> 
                                     })
                                 }
                             </div>
                             <div className='product-info'>
                                 <div className='product-img-wrapper-single'>
                             
-                                <img className='product-img' src={`http://localhost:5000/uploadedIMG/${img}`} />
+                                <img className='product-img' src={`https://shop-apps.onrender.com/uploadedIMG/${img}`} />
                                 
                             
                                 </div>
                                 <div className='block-nav'>
                                     <img src={compared} onClick={addToCompare} alt='compare'  />
-                                    <img src={process.env.PUBLIC_URL + '/imagesHTML/icons/star.png'} alt='star' onMouseOver={e => (e.currentTarget.src = process.env.PUBLIC_URL + '/imagesHTML/icons/starHovered.png')} onMouseOut={e => (e.currentTarget.src = process.env.PUBLIC_URL + '/imagesHTML/icons/star.png')}  />
+                                    <img src={liked} alt='star' onClick={addToLiked} />
                                 </div>
                             </div>
                         </div>
@@ -278,8 +338,7 @@ function addToCompare(e){
                 <div className='recommended'>
                     <div>
                         <h3 className='second-page-header'><span>ПОПУЛЯРНІ </span>ТОВАРИ</h3>
-                        <img className='arrow-right' src={process.env.PUBLIC_URL + '/imagesHTML/icons/left.png'} alt='user'/>
-                        <img className='arrow-left' src={process.env.PUBLIC_URL + '/imagesHTML/icons/right.png'} alt='user'/>
+                       
                         <div className='slider-visible-wrapper'>
                             <ul className='slider-string'>
                                 {fetchedDataFiltered.map( item=>{

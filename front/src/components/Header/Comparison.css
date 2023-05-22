@@ -5,10 +5,6 @@
     margin-bottom: 50px;
 }
 
-.compare-goods-span{
-    /* margin-right: 30px; */
-}
-
 .compare-goods-span:hover{
 cursor: pointer;
 }
@@ -119,4 +115,18 @@ cursor: pointer;
    .labels.lables p {
     font-size: 13px;
    }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:550px) {
+    .comparedFeature{
+        font-size: 13px;
+    }
 }

@@ -149,7 +149,7 @@ async function confirmOrder(){
     setOrderSaved(true)
   
     try{
-        const response = await axios.post('http://localhost:5000/orderCompleted', completedOrder )
+        const response = await axios.post('https://shop-apps.onrender.com/orderCompleted', completedOrder )
         console.log(response.data)
         
     } catch(e){
@@ -179,7 +179,7 @@ return(
             <main>
                 <div className = 'content-container confirm'>
                     <h1 className="registration"><span>ОФОРМЛЕННЯ</span> ЗАМОВЛЕННЯ</h1>
-                    <p>Для успішного оформлення замовлення необхідно авторизуватись.</p>
+                    <p className="basic-text">Для успішного оформлення замовлення необхідно авторизуватись.</p>
 
                     {!orderSaved ? 
                         <div className="goods-wrapper ">
@@ -195,7 +195,7 @@ return(
                             {stateBasket.map(item=>{
                                     return (
                                         <div className='item-confirm'>
-                                            <p className='fixedWidth'><img className="goodIMG" src = {`http://localhost:5000/uploadedIMG/${item.img1[0].filename}`}/></p>
+                                            <p className='fixedWidth'><img className="goodIMG" src = {`https://shop-apps.onrender.com/uploadedIMG/${item.img1[0].filename}`}/></p>
                                             <div className="fixedWidth">
                                                 <p>{item.brand}</p>
                                                 <p className="heavy">{item.model}</p>

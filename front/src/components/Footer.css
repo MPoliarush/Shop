@@ -1,12 +1,9 @@
 
-*{
-    /* border: solid; */
-}
-
 footer{
  position: absolute;
  width:100%;
  top:100%;
+ margin-top: 130px;
 }
 
 .footer-wrap{
@@ -92,7 +89,7 @@ font-style: normal;
 font-weight: 400;
 font-size: 14px;
 line-height: 26px;
-/* or 186% */
+
 
 color: #75758A;
 width: 70%;

@@ -22,7 +22,7 @@ function CatalogCamera(){
 
 async function getInfo () {
     try{
-        const response = await axios("http://localhost:5000/cameras")
+        const response = await axios("https://shop-apps.onrender.com/cameras")
         console.log(response.data)
         const sortedUp = response.data.sort((a,b)=>{
             return a.work_price-b.work_price
@@ -195,7 +195,7 @@ async function filterHandler(e){
     console.log(filterList)
 
     let inputData = filterList
-    fetch('http://localhost:5000/cameras-filters',{
+    fetch('https://shop-apps.onrender.com/cameras-filters',{
         method:'POST',
         headers:{
             "Content-Type": "application/json",

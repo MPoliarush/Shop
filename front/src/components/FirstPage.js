@@ -33,7 +33,7 @@ async function getInfo () {
 
  
     try{
-        const response = await axios("http://localhost:5000/products")
+        const response = await axios("https://shop-apps.onrender.com/products")
         setFetchedData(response.data)
         
     }catch(e){

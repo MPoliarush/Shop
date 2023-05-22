@@ -94,3 +94,46 @@ background: linear-gradient(180deg, #85dd02 0%, #3d7622 100%);
     font-size: 17px;
     color: red;
 }
+
+
+
+
+
+
+
+
+@media screen and (max-width:1080px) {
+
+    .wrapp{
+        width:55%;
+       max-width: 350px;
+    
+    }
+
+    .login h2{
+        text-align: center;
+    }
+
+    .credentials-form{
+        padding: 20px 15px 25px;
+    }
+
+
+}
+
+
+@media screen and (max-width:550px) {
+    .wrapp{
+        width:95%;
+       
+    }
+
+    .login h2{
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .credentials-form{
+        padding: 20px 15px 25px;
+    }
+}

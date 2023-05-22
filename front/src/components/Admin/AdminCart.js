@@ -45,7 +45,7 @@ function AdminCart(props){
     async function getCartData(){
         console.log(params.id)
         try{
-            const response = await axios(`http://localhost:5000/products/${params.id}`)
+            const response = await axios(`https://shop-apps.onrender.com/products/${params.id}`)
             console.log(response.data)
             setInput(response.data)
             setImgArray(response.data.img1)
@@ -239,7 +239,7 @@ function AdminCart(props){
                 "Content-Type": "application/json"
             }
         }
-        const response = await axios.post(`http://localhost:5000/admin/delete/${params.id}`, input ,config )
+        const response = await axios.post(`https://shop-apps.onrender.com/admin/delete/${params.id}`, input ,config )
         
     }
   
@@ -269,7 +269,7 @@ function AdminCart(props){
                         "Content-Type": "multipart/form-data"
                     }
                 }
-                const response = await axios.post(`http://localhost:5000/admin/update/${params.id}`, formData, config )
+                const response = await axios.post(`https://shop-apps.onrender.com/admin/update/${params.id}`, formData, config )
                 console.log(response)
            
         } else if(uploadedIMG){
@@ -286,7 +286,7 @@ function AdminCart(props){
                     "Content-Type": "multipart/form-data"
                 }
             }
-                const response = await axios.post(`http://localhost:5000/admin/update/${params.id}`, formData, config )
+                const response = await axios.post(`https://shop-apps.onrender.com/admin/update/${params.id}`, formData, config )
         }
         
         const config = {
@@ -294,7 +294,7 @@ function AdminCart(props){
                     "Content-Type": "application/json"
                 }
             }
-        const response = await axios.post(`http://localhost:5000/admin/update/${params.id}`, input, config )
+        const response = await axios.post(`https://shop-apps.onrender.com/admin/update/${params.id}`, input, config )
         console.log(response)
         
        
@@ -409,7 +409,7 @@ function AdminCart(props){
                     {imgArray.map(img=>{
                         return (
                             <div className="img-box">
-                                <img className="adminGoodsIMG" src={`http://localhost:5000/uploadedIMG/${img.filename}`} />
+                                <img className="adminGoodsIMG" src={`https://shop-apps.onrender.com/uploadedIMG/${img.filename}`} />
                                 <img className="img-delete" src='/imagesHTML/icons/delete.png' onClick={imgDeleteHandler} name={img.filename}/>
                             </div>
                         )

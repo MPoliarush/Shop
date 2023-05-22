@@ -2,7 +2,7 @@
     font-family: 'Ubuntu', sans-serif;
     padding: 0;
     margin: 0;
-    /* border: solid 1px; */
+   
   } 
   
   ul{
@@ -73,7 +73,7 @@
     flex-wrap: wrap;
     text-align: left;
     position: relative;
-    /* top:-8px; */
+   
     z-index: 10;
     width:100%;
   }
@@ -154,16 +154,7 @@
   }
   
   
-  
-  .nav-li a:hover{
-    color: #71bb02;
-    /* background: linear-gradient(270deg, #8EE901 0%, #4F9C2C 99.06%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text; */
-    /*  */
-    
-  }
+
 
   .iconNumber{
     position: absolute;
@@ -352,6 +343,7 @@
     display: block;
     height: fit-content;
     padding-bottom: 0px;
+    padding-top: 10px;
   }
 
   .logo{
